@@ -5,8 +5,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection.toLowerCase();
-    if (playerSelection === "rock") {
+    if (playerSelection.toLowerCase() === "rock") {
         if (computerSelection === "rock") {
             return "Tie game! Rematch!";
         } else if (computerSelection === "scissors") {
