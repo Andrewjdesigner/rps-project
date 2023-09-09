@@ -8,6 +8,7 @@ function game() {
 
     let compScore = 0;
     let playerScore = 0;
+    let winner;
 
 
     function playRound(playerSelection, computerSelection) {
