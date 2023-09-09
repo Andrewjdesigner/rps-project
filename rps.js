@@ -9,7 +9,7 @@ function game() {
     let compScore = 0;
     let playerScore = 0;
     let winner;
-
+    let playerSelection = prompt("Choose rock, paper, or scissors.");
 
     function playRound(playerSelection, computerSelection) {
         if (playerSelection.toLowerCase() === "rock") {
