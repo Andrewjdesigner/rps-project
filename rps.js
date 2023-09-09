@@ -24,6 +24,34 @@ function game() {
                 return "Please enter rock, paper, or scissors..."
             }
         }
+
+        if (playerSelection.toLowerCase() === "paper") {
+            if (computerSelection === "paper") {
+                return "Tie game! Rematch!";
+            } else if (computerSelection === "rock") {
+                playerScore++;
+                return "Congratulations! You win!";
+            } else if (computerSelection === "scissors") {
+                compScore++;
+                return "You lose. Try again!";
+            } else {
+                return "Please enter rock, paper, or scissors..."
+            }
+        }
+
+        if (playerSelection.toLowerCase() === "scissors") {
+            if (computerSelection === "scissors") {
+                return "Tie game! Rematch!";
+            } else if (computerSelection === "paper") {
+                playerScore++;
+                return "Congratulations! You win!";
+            } else if (computerSelection === "rock") {
+                compScore++;
+                return "You lose. Try again!";
+            } else {
+                return "Please enter rock, paper, or scissors..."
+            }
+        }
     }
 
 }
