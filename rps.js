@@ -47,27 +47,19 @@ function game() {
     }
 
     function playRound(playerSelection, computerSelection) {
+        if(playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissors") {
         if (playerSelection.toLowerCase() === computerSelection) {
             console.log("Tie game! Rematch!");
-        } else if (playerSelection.toLowerCase() === "rock") {
-            if (computerSelection === "scissors") {
-                playerWin();
-            } else if (computerSelection === "paper") {
-                computerWin();
-            }
-        } else if (playerSelection.toLowerCase() === "paper") {
-            if (computerSelection === "rock") {
-                playerWin();
-            } else if (computerSelection === "scissors") {
-                computerWin();
-            }
-        } else if (playerSelection.toLowerCase() === "scissors") {
-            if (computerSelection === "paper") {
-                playerWin();
-            } else if (computerSelection === "rock") {
-                computerWin();
-            }
-        }  else {
+        } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
+            playerWin();
+        } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "rock") {
+            playerWin();
+        } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper") {
+            playerWin();
+        } else {
+            computerWin();
+        }
+    } else {
             console.log("Please enter rock, paper, or scissors...");
             compScore++;
         }
