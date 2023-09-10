@@ -4,6 +4,11 @@ function getComputerChoice() {
     return rps[Math.floor(Math.random() * 3)];
 }
 
+getPlayerChoice = (playerSelection) => {
+    playerSelection = prompt("Choose rock, paper, or scissors.");
+    return playerSelection;
+}
+
 function game() {
 
     let compScore = 0;
@@ -11,11 +16,6 @@ function game() {
     let winner;
 
     playRound(getPlayerChoice(), getComputerChoice());
-
-    getPlayerChoice = (playerSelection) => {
-        playerSelection = prompt("Choose rock, paper, or scissors.");
-        return playerSelection;
-    }
 
     function playRound(playerSelection, computerSelection) {
         if (playerSelection.toLowerCase() === "rock") {
@@ -27,12 +27,8 @@ function game() {
             } else if (computerSelection === "paper") {
                 compScore++;
                 return "You lose. Try again!";
-            } else {
-                return "Please enter rock, paper, or scissors..."
             }
-        }
-
-        if (playerSelection.toLowerCase() === "paper") {
+        } else if (playerSelection.toLowerCase() === "paper") {
             if (computerSelection === "paper") {
                 return "Tie game! Rematch!";
             } else if (computerSelection === "rock") {
@@ -41,12 +37,8 @@ function game() {
             } else if (computerSelection === "scissors") {
                 compScore++;
                 return "You lose. Try again!";
-            } else {
-                return "Please enter rock, paper, or scissors..."
             }
-        }
-
-        if (playerSelection.toLowerCase() === "scissors") {
+        } else if (playerSelection.toLowerCase() === "scissors") {
             if (computerSelection === "scissors") {
                 return "Tie game! Rematch!";
             } else if (computerSelection === "paper") {
@@ -55,9 +47,9 @@ function game() {
             } else if (computerSelection === "rock") {
                 compScore++;
                 return "You lose. Try again!";
-            } else {
-                return "Please enter rock, paper, or scissors..."
             }
+        }  else {
+            return "Please enter rock, paper, or scissors..."
         }
     }
 
