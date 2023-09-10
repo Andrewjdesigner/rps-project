@@ -16,6 +16,7 @@ function game() {
     let winner;
 
     playRound(getPlayerChoice(), getComputerChoice());
+    displayScore();
 
     function playRound(playerSelection, computerSelection) {
         if (playerSelection.toLowerCase() === "rock") {
@@ -59,4 +60,8 @@ function game() {
         console.log("You lose. Try again!");
     }
 
+    function displayScore() {
+        console.log("Player: " + playerScore);
+        console.log("Computer: " + compScore);
+    }
 }
