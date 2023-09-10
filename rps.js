@@ -13,7 +13,6 @@ function game() {
 
     let compScore = 0;
     let playerScore = 0;
-    let winner;
 
     playRound(getPlayerChoice(), getComputerChoice());
     displayScore();
@@ -50,13 +49,11 @@ function game() {
 
     function playerWin() {
         playerScore++;
-        winner = "You";
         console.log("Congratulations! You win.");
     }
 
     function computerWin() {
         compScore++;
-        winner = "Computer";
         console.log("You lose. Try again!");
     }
 
