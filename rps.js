@@ -13,8 +13,9 @@ function game() {
 
     let compScore = 0;
     let playerScore = 0;
+    let winner;
 
-    for(let i = 1; compScore < 5 && playerScore < 5; i++) {
+    for(let i = 1; i < 5; i++) {
 
         console.log("Round " + i + ":");
 
@@ -23,27 +24,31 @@ function game() {
 
     }
 
+    if(playerScore = 5) {
+        winner = "Player";
+    } else {
+        winner = "Computer";
+    }
+
+    console.log(`Game finished! The winner is: ${winner}`);
+
     function playRound(playerSelection, computerSelection) {
-        if (playerSelection.toLowerCase() === "rock") {
-            if (computerSelection === "rock") {
-                return "Tie game! Rematch!";
-            } else if (computerSelection === "scissors") {
+        if (playerSelection.toLowerCase() === computerSelection) {
+            console.log("Tie game! Rematch!");
+        } else if (playerSelection.toLowerCase() === "rock") {
+            if (computerSelection === "scissors") {
                 playerWin();
             } else if (computerSelection === "paper") {
                 computerWin();
             }
         } else if (playerSelection.toLowerCase() === "paper") {
-            if (computerSelection === "paper") {
-                return "Tie game! Rematch!";
-            } else if (computerSelection === "rock") {
+            if (computerSelection === "rock") {
                 playerWin();
             } else if (computerSelection === "scissors") {
                 computerWin();
             }
         } else if (playerSelection.toLowerCase() === "scissors") {
-            if (computerSelection === "scissors") {
-                return "Tie game! Rematch!";
-            } else if (computerSelection === "paper") {
+            if (computerSelection === "paper") {
                 playerWin();
             } else if (computerSelection === "rock") {
                 computerWin();
@@ -55,12 +60,12 @@ function game() {
 
     function playerWin() {
         playerScore++;
-        console.log("Congratulations! You win.");
+        console.log("Round Win: Player");
     }
 
     function computerWin() {
         compScore++;
-        console.log("You lose. Try again!");
+        console.log("Round Win: Computer");
     }
 
     function displayScore() {
