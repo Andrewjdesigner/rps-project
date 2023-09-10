@@ -22,35 +22,41 @@ function game() {
             if (computerSelection === "rock") {
                 return "Tie game! Rematch!";
             } else if (computerSelection === "scissors") {
-                playerScore++;
-                return "Congratulations! You win!";
+                playerWin();
             } else if (computerSelection === "paper") {
-                compScore++;
-                return "You lose. Try again!";
+                computerWin();
             }
         } else if (playerSelection.toLowerCase() === "paper") {
             if (computerSelection === "paper") {
                 return "Tie game! Rematch!";
             } else if (computerSelection === "rock") {
-                playerScore++;
-                return "Congratulations! You win!";
+                playerWin();
             } else if (computerSelection === "scissors") {
-                compScore++;
-                return "You lose. Try again!";
+                computerWin();
             }
         } else if (playerSelection.toLowerCase() === "scissors") {
             if (computerSelection === "scissors") {
                 return "Tie game! Rematch!";
             } else if (computerSelection === "paper") {
-                playerScore++;
-                return "Congratulations! You win!";
+                playerWin();
             } else if (computerSelection === "rock") {
-                compScore++;
-                return "You lose. Try again!";
+                computerWin();
             }
         }  else {
             return "Please enter rock, paper, or scissors..."
         }
+    }
+
+    function playerWin() {
+        playerScore++;
+        winner = "You";
+        console.log("Congratulations! You win.");
+    }
+
+    function computerWin() {
+        compScore++;
+        winner = "Computer";
+        console.log("You lose. Try again!");
     }
 
 }
