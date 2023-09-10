@@ -67,6 +67,9 @@ function game() {
             } else if (computerSelection === "rock") {
                 computerWin();
             }
+        }  else {
+            console.log("Please enter rock, paper, or scissors...");
+            compScore++;
         }
     }
 
