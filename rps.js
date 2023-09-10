@@ -14,8 +14,14 @@ function game() {
     let compScore = 0;
     let playerScore = 0;
 
-    playRound(getPlayerChoice(), getComputerChoice());
-    displayScore();
+    for(let i = 1; compScore < 5 && playerScore < 5; i++) {
+
+        console.log("Round " + i + ":");
+
+        playRound(getPlayerChoice(), getComputerChoice());
+        displayScore();
+
+    }
 
     function playRound(playerSelection, computerSelection) {
         if (playerSelection.toLowerCase() === "rock") {
