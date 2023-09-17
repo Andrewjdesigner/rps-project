@@ -15,14 +15,10 @@ function game() {
     let playerScore = 0;
     let winner;
 
-    for(let i = 0; i < 5; i++) {
-
         console.log("Round " + (i + 1) + ":");
 
         playRound(getPlayerChoice(), getComputerChoice());
         displayScore();
-
-    }
 
     resultScreen();
 
