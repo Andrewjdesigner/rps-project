@@ -9,6 +9,12 @@ getPlayerChoice = (playerSelection) => {
     return playerSelection;
 }
 
+btns = document.querySelectorAll("button");
+
+btns.forEach(btn => btn.addEventListener("click", function(){
+    alert("Worked!");
+}));
+
 function game() {
 
     let compScore = 0;
