@@ -1,17 +1,20 @@
+const container = document.querySelector("#container");
+const roundResultDiv = document.createElement("div");
+roundResultDiv.classList.add("round-result-cntr");
+
 btns = document.querySelectorAll("button");
 
 btns.forEach(btn => btn.addEventListener("click", () => {
     if (btn === document.querySelector("#rock")) {
         playRound("rock", getComputerChoice());
+        container.appendChild(roundResultDiv);
     } else if (btn === document.querySelector("#paper")) {
         playRound("paper", getComputerChoice());
+        container.appendChild(roundResultDiv);
     } else {
         playRound("scissors", getComputerChoice());
     }
 }));
-
-const roundResultDiv = document.createElement("div");
-roundResultDiv.classList.add("round-result-cntr");
 
 function getComputerChoice() {
     const rps = ["rock", "paper", "scissors"];
