@@ -1,52 +1,42 @@
-const container = document.querySelector("#container");
-const roundResultDiv = document.createElement("div");
-roundResultDiv.classList.add("round-result-cntr");
-
-btns = document.querySelectorAll("button");
+const btns = document.querySelectorAll("button");
 
 btns.forEach(btn => btn.addEventListener("click", () => {
     if (btn === document.querySelector("#rock")) {
-        playRound("rock", getComputerChoice());
-        container.appendChild(roundResultDiv);
+        playRound("Rock", getComputerChoice());
     } else if (btn === document.querySelector("#paper")) {
-        playRound("paper", getComputerChoice());
-        container.appendChild(roundResultDiv);
+        playRound("Paper", getComputerChoice());
     } else {
-        playRound("scissors", getComputerChoice());
+        playRound("Scissors", getComputerChoice());
     }
 }));
 
 function getComputerChoice() {
-    const rps = ["rock", "paper", "scissors"];
+    const rps = ["Rock", "Paper", "Scissors"];
     return rps[Math.floor(Math.random() * 3)];
 }
 
 function playRound(playerSelection, computerSelection) {
-    if(playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissors") {
-    if (playerSelection.toLowerCase() === computerSelection) {
-        console.log(`Tie game! Rematch! \nPlayer Chose: ${playerSelection} \nComputer Chose: ${computerSelection}`);
-    } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
-        console.log(`Round Winner: Player \nPlayer Chose: ${playerSelection} \nComputer Chose: ${computerSelection}`);
-    } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "rock") {
-        console.log(`Round Winner: Player \nPlayer Chose: ${playerSelection} \nComputer Chose: ${computerSelection}`);
-    } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper") {
-        console.log(`Round Winner: Player \nPlayer Chose: ${playerSelection} \nComputer Chose: ${computerSelection}`);
+    if (playerSelection === computerSelection) {
+        tieGame(playerSelection);
+    } else if (playerSelection === "Rock" && computerSelection === "Scissors"
+            || playerSelection === "Paper" && computerSelection === "Rock"
+            || playerSelection === "Scissors" && computerSelection === "Paper") {
+                playerWin(playerSelection, computerSelection);
     } else {
-        console.log(`Round Winner: Computer \nPlayer Chose: ${playerSelection} \nComputer Chose: ${computerSelection}`);
-    }
-} else {
-        console.log("Please enter rock, paper, or scissors...");
+        computerWin(playerSelection, computerSelection);
     }
 }
 
-function playerWin() {
-    playerScore++;
-    console.log("Round Win: Player");
+function playerWin(choice1, choice2) {
+    console.log(`Round Winner: Player \nPlayer Chose: ${choice1} \nComputer Chose: ${choice2}`);
 }
 
-function computerWin() {
-    compScore++;
-    console.log("Round Win: Computer");
+function computerWin(choice1, choice2) {
+    console.log(`Round Winner: Computer \nPlayer Chose: ${choice1} \nComputer Chose: ${choice2}`);
+}
+
+function tieGame(choice) {
+    console.log(`Tie game! Rematch! \nPlayer Chose: ${choice} \nComputer Chose: ${choice}`);
 }
 
 
