@@ -14,6 +14,8 @@ btns.forEach(btn => btn.addEventListener("click", () => {
     }
 }));
 
+restartButton.addEventListener("click", restartGame);
+
 function restartGame() {
     playerScore = 0;
     computerScore = 0;
@@ -33,8 +35,6 @@ function restartGame() {
     btns.forEach(btn => btn.removeAttribute("disabled"));
 }
 
-restartButton.addEventListener("click", restartGame);
-
 function getComputerChoice() {
     const rps = ["Rock", "Paper", "Scissors"];
     return rps[Math.floor(Math.random() * 3)];
@@ -42,7 +42,7 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 
-    if (playerScore < 3 && computerScore < 3) {
+    if (playerScore < 5 && computerScore < 5) {
         const playerChoiceDisplay = document.querySelector("#player-choice");
         playerChoiceDisplay.textContent = playerSelection;
 
@@ -67,7 +67,7 @@ function playerWin() {
     playerScore++;
     scoreDisplay = document.querySelector("#player-score");
     scoreDisplay.textContent = playerScore;
-    if (playerScore === 3) {
+    if (playerScore === 5) {
         btns.forEach(btn => btn.setAttribute("disabled", true));
         winnerDisplay.textContent = "Game Over. Player Wins!";
     }
@@ -79,7 +79,7 @@ function computerWin() {
     computerScore++;
     scoreDisplay = document.querySelector("#computer-score");
     scoreDisplay.textContent = computerScore;
-    if (computerScore === 3) {
+    if (computerScore === 5) {
         btns.forEach(btn => btn.setAttribute("disabled", true));
         winnerDisplay.textContent = "Game Over. Computer Wins!";
     }
