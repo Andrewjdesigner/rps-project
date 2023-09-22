@@ -23,11 +23,8 @@ body {
     text-align: center;
 }
 
-.container {
-    display: flex;
-}
-
 .container--header {
+    display: flex;
     width: 100%;
     max-width: 1180px;
     margin: 0 auto;
@@ -35,6 +32,7 @@ body {
 }
 
 .container--main-body {
+    display: flex;
     width: 100%;
     max-width: 1180px;
     margin: 0 auto;
@@ -42,6 +40,7 @@ body {
 }
 
 .container--rps-buttons {
+    display: flex;
     gap: 20px;
     margin: 80px auto 25px;
 }
@@ -66,7 +65,12 @@ body {
 
 .button--rps:active {
     transform: scale(0.9);
-    transition: .03s ease;
+    transition: 0s;
+}
+
+.button--rps:disabled {
+    transform: unset;
+    transition: unset;
 }
 
 .button--rps-inner-top {
@@ -95,6 +99,8 @@ body {
 .panel--results-header {
     justify-content: center;
     display: flex;
+    width: 100%;
+    border-bottom: 1px solid #c7bfbf;
 }
 
 .panel--results-title {
@@ -126,13 +132,22 @@ body {
 
 #player-choice {
     text-align: center;
+    margin-top: 8px;
 }
 
 #computer-choice {
     text-align: center;
+    margin-top: 8px;
 }
 
 #round-winner {
     font-size: 2rem;
     text-align: center;
+    font-weight: 800;
+    margin: 24px 0 24px;
+    color: rgb(95, 96, 105)
+}
+
+.panel--score {
+
 }
