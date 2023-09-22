@@ -148,6 +148,9 @@ body {
     color: rgb(95, 96, 105)
 }
 
-.panel--score {
-
+#player-score, #computer-score {
+    font-weight: 800;
+    font-size: 4rem;
+    text-align: center;
+    margin: 20px 0;
 }

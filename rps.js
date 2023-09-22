@@ -36,8 +36,6 @@ function playRound(playerSelection, computerSelection) {
         } else {
             computerWin();
         } 
-    } else {
-        btns.forEach(btn => btn.setAttribute("disabled", true));
     }
 }
 
@@ -45,6 +43,11 @@ function playerWin() {
     const winnerDisplay = document.querySelector("#round-winner");
     winnerDisplay.textContent = "Player Wins!";
     playerScore++;
+    scoreDisplay = document.querySelector("#player-score")
+    scoreDisplay.textContent = playerScore;
+    if (playerScore === 3) {
+        btns.forEach(btn => btn.setAttribute("disabled", true));
+    }
     console.log("Player: " + playerScore);
 }
 
@@ -52,6 +55,11 @@ function computerWin() {
     const winnerDisplay = document.querySelector("#round-winner");
     winnerDisplay.textContent = "Computer Wins!";
     computerScore++;
+    scoreDisplay = document.querySelector("#computer-score")
+    scoreDisplay.textContent = computerScore;
+    if (computerScore === 3) {
+        btns.forEach(btn => btn.setAttribute("disabled", true));
+    }
     console.log("Computer: " + computerScore);
 }
 
