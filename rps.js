@@ -16,27 +16,37 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+
+    const playerChoiceDisplay = document.querySelector("#player-choice");
+    playerChoiceDisplay.textContent = playerSelection;
+
+    const compChoiceDisplay = document.querySelector("#computer-choice");
+    compChoiceDisplay.textContent = computerSelection;
+
     if (playerSelection === computerSelection) {
-        tieGame(playerSelection);
+        tieGame();
     } else if (playerSelection === "Rock" && computerSelection === "Scissors"
             || playerSelection === "Paper" && computerSelection === "Rock"
             || playerSelection === "Scissors" && computerSelection === "Paper") {
-                playerWin(playerSelection, computerSelection);
+                playerWin();
     } else {
-        computerWin(playerSelection, computerSelection);
+        computerWin();
     }
 }
 
-function playerWin(choice1, choice2) {
-    console.log(`Round Winner: Player \nPlayer Chose: ${choice1} \nComputer Chose: ${choice2}`);
+function playerWin() {
+    const winnerDisplay = document.querySelector("#round-winner");
+    winnerDisplay.textContent = "Player Wins!";
 }
 
-function computerWin(choice1, choice2) {
-    console.log(`Round Winner: Computer \nPlayer Chose: ${choice1} \nComputer Chose: ${choice2}`);
+function computerWin() {
+    const winnerDisplay = document.querySelector("#round-winner");
+    winnerDisplay.textContent = "Computer Wins!";
 }
 
-function tieGame(choice) {
-    console.log(`Tie game! Rematch! \nPlayer Chose: ${choice} \nComputer Chose: ${choice}`);
+function tieGame() {
+    const winnerDisplay = document.querySelector("#round-winner");
+    winnerDisplay.textContent = "Tie Game!";
 }
 
 

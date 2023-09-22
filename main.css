@@ -92,9 +92,16 @@ body {
     display: block;
 }
 
-.panel--results-title {
+.panel--results-header {
     justify-content: center;
     display: flex;
+}
+
+.panel--results-title {
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
 }
 
 .panel--choices {
@@ -108,7 +115,24 @@ body {
     flex-direction: column;
 }
 
+.panel--choice-label {
+    margin: 0;
+}
+
 .panel--comp-choice {
     display: flex;
     flex-direction: column;
+}
+
+#player-choice {
+    text-align: center;
+}
+
+#computer-choice {
+    text-align: center;
+}
+
+#round-winner {
+    font-size: 2rem;
+    text-align: center;
 }
