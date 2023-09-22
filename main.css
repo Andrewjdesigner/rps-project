@@ -154,3 +154,23 @@ body {
     text-align: center;
     margin: 20px 0;
 }
+
+.button--restart {
+    max-width: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-self: center;
+}
+
+.button--restart-text {
+    font-size: 1.5rem;
+}
+
+.button--restart-text:before {
+    content: url(arrow-rotate-left-solid.svg);
+    display: inline-block;
+    width: 20px;
+    opacity: 0.5;
+    margin-right: 7px;
+}

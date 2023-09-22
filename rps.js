@@ -1,7 +1,8 @@
 let playerScore = 0;
 let computerScore = 0;
 
-const btns = document.querySelectorAll("button");
+const btns = document.querySelectorAll(".container--rps-buttons button");
+const restartButton = document.querySelector(".button--restart")
 
 btns.forEach(btn => btn.addEventListener("click", () => {
     if (btn === document.querySelector("#rock")) {
@@ -12,6 +13,27 @@ btns.forEach(btn => btn.addEventListener("click", () => {
         playRound("Scissors", getComputerChoice());
     }
 }));
+
+function restartGame() {
+    playerScore = 0;
+    computerScore = 0;
+
+    const playerScoreDisplay = document.querySelector("#player-score");
+    const computerScoreDisplay = document.querySelector("#computer-score");
+    const winnerDisplay = document.querySelector("#round-winner");
+    const playerChoiceDisplay = document.querySelector("#player-choice");
+    const compChoiceDisplay = document.querySelector("#computer-choice");
+
+    playerChoiceDisplay.textContent = "";
+    compChoiceDisplay.textContent = "";
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
+    winnerDisplay.textContent = "";
+
+    btns.forEach(btn => btn.removeAttribute("disabled"));
+}
+
+restartButton.addEventListener("click", restartGame);
 
 function getComputerChoice() {
     const rps = ["Rock", "Paper", "Scissors"];
@@ -43,24 +65,24 @@ function playerWin() {
     const winnerDisplay = document.querySelector("#round-winner");
     winnerDisplay.textContent = "Player Wins!";
     playerScore++;
-    scoreDisplay = document.querySelector("#player-score")
+    scoreDisplay = document.querySelector("#player-score");
     scoreDisplay.textContent = playerScore;
     if (playerScore === 3) {
         btns.forEach(btn => btn.setAttribute("disabled", true));
+        winnerDisplay.textContent = "Game Over. Player Wins!";
     }
-    console.log("Player: " + playerScore);
 }
 
 function computerWin() {
     const winnerDisplay = document.querySelector("#round-winner");
     winnerDisplay.textContent = "Computer Wins!";
     computerScore++;
-    scoreDisplay = document.querySelector("#computer-score")
+    scoreDisplay = document.querySelector("#computer-score");
     scoreDisplay.textContent = computerScore;
     if (computerScore === 3) {
         btns.forEach(btn => btn.setAttribute("disabled", true));
+        winnerDisplay.textContent = "Game Over. Computer Wins!";
     }
-    console.log("Computer: " + computerScore);
 }
 
 function tieGame() {
